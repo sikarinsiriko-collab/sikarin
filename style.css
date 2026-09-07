@@ -203,3 +203,22 @@ header h2 {
     background-color: rgba(255, 255, 255, 0.6);
     color: #ba007f;
 }
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  
+  /* ปิดการเลื่อนทั้งแนวนอนและแนวตั้ง */
+  overflow: hidden;
+  
+  /* ตรึงตำแหน่งไว้กับหน้าจอ */
+  position: fixed;
+  
+  /* ป้องกัน Touch Gesture บางประเภทในมือถือ */
+  touch-action: none;
+  
+  /* เลือกไม่ให้คลุมข้อความโดยไม่ตั้งใจเวลาใช้นิ้วปาด */
+  user-select: none;
+  -webkit-user-select: none;
+}
