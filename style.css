@@ -24,6 +24,10 @@ body {
     flex-direction: column;
     min-height: 100vh;
     justify-content: flex-start;
+  /* กำหนดความกว้างให้เท่ากับขนาดจอคอมพิวเตอร์ */
+    min-width: 1280px;
+    margin: 0 auto;
+
     
 }
 
