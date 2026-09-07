@@ -1,245 +1,60 @@
 /* ==========================================
-   1. GLOBAL & BODY SETTINGS
+   ปรับแต่งรูปภาพให้ล็อคตำแหน่งเดิมและย่อ-ขยายตามขนาดจอ
    ========================================== */
-html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    position: fixed;
-    touch-action: none;
-    user-select: none;
-    -webkit-user-select: none;
-}
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(to bottom, #ff9a9e, #fecfef);
-    color: #333;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    justify-content: flex-start;
-    
-    /* ตั้งค่าการอ้างอิงตำแหน่งสำหรับองค์ประกอบ absolute ด้านใน */
-    position: relative;
-    box-sizing: border-box;
-}
-
-/* ==========================================
-   2. HEADER & TYPOGRAPHY
-   ========================================== */
-.h11 {
-    font-family: 'Kanit', sans-serif;
-    font-size: 4rem; /* ปรับลดขนาดลงเล็กน้อยเพื่อให้พอดีกับจอ iPad */
-    color: #f5f4f4;
-    text-align: center;
-    text-shadow: 2px 2px 0px #ffeaa7, 4px 4px 0px #fd79a8;
-    margin: 15px 0;
-    position: relative;
-    z-index: 10; /* ดันข้อความให้อยู่เหนือรูปภาพเสมอ */
-}
-
-header {
-    background: transparent;
-    padding: 20px 0;
-    color: white;
-    margin-bottom: 0;
-    position: relative;
-    z-index: 10;
-}
-
-header h2 {
-    margin: 0;
-    font-size: 1.8rem;
-    font-weight: 600;
-}
-
-/* NAVIGATION MENU */
-.nav-menu1 {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    position: relative;
-    z-index: 10;
-}
-
-.nav-link1, 
-.nav-link.active1 {
-    color: #5d1a55;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 6px 16px;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-}
-
-.nav-link.active1:hover, 
-.nav-link1:hover {
-    background-color: rgba(255, 255, 255, 0.6);
-    color: #ba007f;
-}
-
-/* ==========================================
-   3. MAIN CONTENT & BUTTONS
-   ========================================== */
-main {
-    padding: 20px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 5;
-}
-
-.content-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    position: relative;
-    z-index: 5;
-}
-
-.button-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.center-btn {
-    background-color: #f9a1db;
-    color: white;
-    padding: 12px 36px;
-    font-size: 2.5rem; /* ใช้หน่วย rem เพื่อความยืดหยุ่นบนจอ iPad */
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 20px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.center-btn:hover {
-    background-color: #f485da;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(250, 182, 242, 0.6);
-}
-
-/* ==========================================
-   4. DECORATIVE IMAGES (DECORATIONS)
-   ========================================== */
-/* กำหนดสไตล์ร่วมกันของรูปภาพตกแต่ง */
+/* สไตล์ร่วมสำหรับรูปภาพทุกใบ */
 .i4-image, 
 .i5-image, 
 .side-image, 
 .right-image {
-    position: absolute;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    object-fit: cover;
-    z-index: 1; /* วางไว้เลเยอร์ล่างสุดไม่ให้ทับข้อความ */
+  position: absolute;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  object-fit: cover; /* รักษาสัดส่วนภาพไม่ให้เบี้ยว */
+  z-index: 1;        /* ให้อยู่ด้านหลังข้อความเสมอ */
 }
 
-/* ปรับ Hover Effect ให้รูปภาพ */
+/* 1. รูปมุมบนซ้าย */
+.i4-image {
+  width: 18vw;        /* ปรับความกว้างตาม % ของขนาดจอ */
+  height: auto;       /* ให้ความสูงปรับตามอัตราส่วนภาพอัตโนมัติ */
+  max-width: 250px;   /* ไม่ให้ขยายใหญ่เกินไปเมื่อเปิดในจอคอมใหญ่ๆ */
+  top: 3vh;           /* ระยะห่างจากด้านบนตาม % ของความสูงจอ */
+  left: 2vw;          /* ระยะห่างจากด้านซ้ายตาม % ของความกว้างจอ */
+}
+
+/* 2. รูปมุมบนขวา */
+.i5-image {
+  width: 20vw;
+  height: auto;
+  max-width: 275px;
+  top: 5vh;
+  right: 3vw;
+}
+
+/* 3. รูปมุมล่างซ้าย */
+.side-image {
+  width: 22vw;
+  height: auto;
+  max-width: 300px;
+  top: 45vh;          /* ตรึงตำแหน่งไว้ช่วงกลาง-ล่างของจอ */
+  left: 3vw;
+}
+
+/* 4. รูปมุมล่างขวา */
+.right-image {
+  width: 22vw;
+  height: auto;
+  max-width: 300px;
+  top: 50vh;          /* ตรึงตำแหน่งไว้ช่วงกลาง-ล่างของจอ */
+  right: 4vw;
+}
+
+/* Hover Effect ขยายรูปภาพเล็กน้อยเมื่อเอาเมาส์ไปชี้ */
 .i4-image:hover, 
 .i5-image:hover, 
 .side-image:hover, 
 .right-image:hover {
-    transform: scale(1.03);
-}
-
-/* พิกัดสำหรับหน้าจอคอมพิวเตอร์ทั่วไป */
-.i4-image {
-    width: 220px;
-    height: 350px;
-    top: 20px;
-    left: 20px;
-}
-
-.i5-image {
-    width: 240px;
-    height: 420px;
-    top: 20px;
-    right: 20px;
-}
-
-.side-image {
-    width: 250px;
-    height: 380px;
-    bottom: 40px;
-    left: 40px;
-}
-
-.right-image {
-    width: 250px;
-    height: 350px;
-    bottom: 40px;
-    right: 40px;
-}
-
-footer {
-    margin-top: auto;
-    background-color: #222;
-    color: white;
-    padding: 10px 0;
-    position: relative;
-    z-index: 10;
-}
-
-/* ==========================================
-   5. IPAD & TABLET RESPONSIVE ADJUSTMENTS
-   ========================================== */
-@media screen and (max-width: 1024px) {
-    /* ปรับขนาดตัวหนังสือข้อความหลักบน iPad */
-    .h11 {
-        font-size: 3rem;
-    }
-
-    .center-btn {
-        font-size: 1.8rem;
-        padding: 10px 24px;
-    }
-
-    /* ย่อขนาดรูปภาพและดันออกไปชิดขอบจอมากขึ้นเพื่อหลบพื้นที่ตรงกลาง */
-    .i4-image {
-        width: 140px;
-        height: 220px;
-        top: 10px;
-        left: 10px;
-        opacity: 0.7; /* ใส่ความโปร่งแสงเล็กน้อยเพื่อไม่ให้รบกวนสายตา */
-    }
-
-    .i5-image {
-        width: 150px;
-        height: 250px;
-        top: 10px;
-        right: 10px;
-        opacity: 0.7;
-    }
-
-    .side-image {
-        width: 160px;
-        height: 240px;
-        bottom: 30px;
-        left: 10px;
-        opacity: 0.7;
-    }
-
-    .right-image {
-        width: 160px;
-        height: 220px;
-        bottom: 30px;
-        right: 10px;
-        opacity: 0.7;
-    }
+  transform: scale(1.03);
 }
