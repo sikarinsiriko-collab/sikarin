@@ -1,0 +1,223 @@
+/* นำเข้าฟอนต์ Kanit */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap');
+
+* {
+    font-family: 'Kanit', sans-serif;
+    box-sizing: border-box;
+}
+
+/* ตั้งค่าให้หน้าเว็บยืดเต็มหน้าจอและไล่สีจากบนลงล่าง */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to bottom,#fda1f5, #f8c1f9);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* ส่วนหัว Header */
+header {
+    text-align: center;
+    padding: 20px 0 10px;
+    color: #1a365d;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+/* เมนูเปลี่ยนหน้า */
+.nav-menu {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.nav-link {
+    color: #5d1a55;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #ba007f;
+}
+
+/* จัดส่วนเนื้อหาให้อยู่ตรงกลางจอพอดี */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* การ์ดกระจกใสแบบจัดกึ่งกลาง */
+.quiz-card {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    padding: 30px;
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+}
+
+/* องค์ประกอบภายในเกม */
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #1a365d;
+}
+
+.score-badge {
+    background: #fe8fe6;
+    color: white;
+}
+
+.question-title {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+/* ปุ่มเลือกตอบ */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option-btn {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    color: #333;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.25s ease;
+}
+
+.option-btn:hover {
+    background: #ffffff;
+    border-color: #f588fd;
+    color: #f893fc;
+    transform: translateX(5px);
+}
+
+/* ปุ่มกดยืนยัน / เล่นใหม่ */
+.submit-btn {
+    background-color: #fa91f0;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(249, 106, 249, 0.4);
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #ed7fdd;
+    transform: translateY(-2px);
+}
+
+/* ส่วนสรุปผล */
+.trophy-icon {
+    font-size: 3rem;
+    color: #f1c40f;
+    margin-bottom: 10px;
+}
+
+.final-score-text {
+    font-size: 1.1rem;
+    color: #34495e;
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Footer ติดล่างสุด */
+footer {
+    text-align: center;
+    background-color: rgba(34, 34, 34, 0.85);
+    color: white;
+    padding: 12px 0;
+    font-size: 0.85rem;
+}
+.result-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    margin-top: 15px;
+}
+
+/* สไตล์พื้นฐานของปุ่มที่เป็นลิงก์ (<a>) */
+.nav-btn {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 10px 24px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* ปุ่มสีเขียวสำหรับกลับหน้าแรก */
+.secondary-btn {
+    background-color: #ff87e9;
+    color: white;
+}
+
+.secondary-btn:hover {
+    background-color: #fa8dfc;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(237, 127, 200, 0.4);
+}
+
+/* ปุ่มแบบกรอบโปร่งใสสำหรับหน้าอื่น */
+.outline-btn {
+    background-color: #ff87e9;
+    color: white;
+    border: 1px solid rgba(26, 54, 93, 0.3);
+    margin-top: 10px;
+}
+
+.outline-btn:hover {
+    background-color: #fa8dfc;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(237, 127, 200, 0.4);
+}
